@@ -3,12 +3,12 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { settingForSides } from './data/UI/jsonDataComponent'
-import recursiveSearchJS from './function/UI/searchComponent'
+import { recursiveSearchLodach } from './function/UI/searchComponent'
 
 function App() {
   const [count, setCount] = useState(0)
- 
-  console.log('settingForSides', recursiveSearchJS(settingForSides, 'typeOptions', 'configurationOptions'));
+
+  console.log('settingForSides', recursiveSearchLodach(settingForSides, 'typeOptions', 'configurationOptions'));
 
 
 

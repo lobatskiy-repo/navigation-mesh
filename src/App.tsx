@@ -1,14 +1,11 @@
 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import * as THREE from 'three'
-// import { OrbitControls } from "three-orbitcontrols-ts";
 //@ts-ignore
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 //@ts-ignore
 import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-
+//@ts-ignore
 import { Pathfinding, PathfindingHelper } from 'three-pathfinding';
 
 
@@ -101,7 +98,7 @@ function App() {
 
   loader.load('./glb/demo-level.glb',
     (gltf: GLTF) => {
-       
+
       scene.add(gltf.scene);
     }
   )
@@ -116,9 +113,9 @@ function App() {
   let navmesh: any;
   let groupID;
   let navpath: any;
-  loader.load('./glb/demo-level-navmesh.glb', (gltf: GLTF) => { 
+  loader.load('./glb/demo-level-navmesh.glb', (gltf: GLTF) => {
     gltf.scene.traverse((node: any) => {
-      
+
       if (!navmesh && node.isObject3D && node.children && node.children.length > 0) {
         navmesh = node.children[0];
         pathfinding.setZoneData(ZONE, Pathfinding.createZone(navmesh.geometry));
@@ -142,7 +139,7 @@ function App() {
 
     const found = intersect(clickMouse);
     if (found.length > 0) {
-      let target = found[0].point;
+      const target = found[0].point;
       const agentpos = agentGroup.position;
       // console.log(`agentpos: ${JSON.stringify(agentpos)}`);
       // console.log(`target: ${JSON.stringify(target)}`);
